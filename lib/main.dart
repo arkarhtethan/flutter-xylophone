@@ -9,6 +9,17 @@ class XylophoneApp extends StatelessWidget {
     player.play('note$soundNumber.wav');
   }
 
+  Expanded buildKey({Color colorName, int soundNumber}) {
+    return Expanded(
+      child: FlatButton(
+        color: colorName,
+        onPressed: () {
+          playSound(1);
+        },
+      ),
+    );
+  }
+
   @override
   Widget build(BuildContext context) {
     return MaterialApp(
@@ -16,65 +27,17 @@ class XylophoneApp extends StatelessWidget {
       home: Scaffold(
         body: SafeArea(
           child: Column(
-            crossAxisAlignment: CrossAxisAlignment.stretch,
-            children: <Widget>[
-            Expanded(
-              child: FlatButton(
-                color: Colors.red,
-                onPressed: () {
-                  playSound(1);
-                },
-              ),
-            ),
-            Expanded(
-              child: FlatButton(
-                color: Colors.orange,
-                onPressed: () {
-                  playSound(2);
-                },
-              ),
-            ),
-            Expanded(
-              child: FlatButton(
-                color: Colors.yellow,
-                onPressed: () {
-                  playSound(3);
-                },
-              ),
-            ),
-            Expanded(
-              child: FlatButton(
-                color: Colors.green,
-                onPressed: () {
-                  playSound(4);
-                },
-              ),
-            ),
-            Expanded(
-              child: FlatButton(
-                color: Colors.teal,
-                onPressed: () {
-                  playSound(5);
-                },
-              ),
-            ),
-            Expanded(
-              child: FlatButton(
-                color: Colors.blue,
-                onPressed: () {
-                  playSound(6);
-                },
-              ),
-            ),
-            Expanded(
-              child: FlatButton(
-                color: Colors.purple,
-                onPressed: () {
-                  playSound(7);
-                },
-              ),
-            ),
-          ]),
+              crossAxisAlignment: CrossAxisAlignment.stretch,
+              children: <Widget>[
+                buildKey(colorName:Colors.red,soundNumber:1),
+                buildKey(colorName:Colors.orange,soundNumber:2),
+                buildKey(colorName:Colors.yellow,soundNumber:3),
+                buildKey(colorName:Colors.green,soundNumber:4),
+                buildKey(colorName:Colors.teal,soundNumber:5),
+                buildKey(colorName:Colors.blue,soundNumber:6),
+                buildKey(colorName:Colors.purple,soundNumber:7),
+              
+              ]),
         ),
       ),
     );
